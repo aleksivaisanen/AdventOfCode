@@ -6,7 +6,7 @@ public class AoC2 {
 	public static void main(String[] args) {
 		
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\aleks\\eclipse-workspace\\Advent of Code\\inputs\\inputd2p1.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("./inputs/inputd2p1.txt"));
 			StringBuilder sb = new StringBuilder();
 			String line = br.readLine();
 			while(line != null) {
