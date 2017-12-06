@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class AoC6 {
 	public static void main(String[] args) {
@@ -8,7 +9,6 @@ public class AoC6 {
 	}
 	public static void partone(int[] input) {
 		List<int[]> myList = new ArrayList<int[]>();
-		myList.add(input);
 		int max=input[0];
 		int index = 0;
 		int cycles = 0;
@@ -21,22 +21,27 @@ public class AoC6 {
 					index = i;
 				}
 			}
-			input[index]=0;
-			int remainder = max%input.length;
-			System.out.println(remainder);
-			int quotient = max/input.length;
-			for(int i = 0; i<input.length; i++) {
-				if((i!=index) && quotient > 0) {
-					input[i]= remainder;
-					input[index]=quotient;	
-					System.out.println(input[i]);
+			input[index]= 0;
+			for(int i = 0; i<max;i++) {
+				
+				int j = i;
+				if(i>=input.length) {
+					j-=(input.length);
 				}
-				else if(quotient == 0) {
-					input[i]=remainder;
+				
+				if(i==input.length) {
+					input[index]++;
 				}
+				if(j!=index) {
+					input[j]++;
+				}
+				System.out.println(input[j]);
 			}
+			System.out.println("");
+			
 			for(int i = 0; i<myList.size(); i++) {
-				if(input == myList.get(i)) {
+				if(Arrays.equals(input, myList.get(i))) {
+					System.out.println("break is true");
 					break whileloop;
 				}
 			}
