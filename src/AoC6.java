@@ -11,17 +11,38 @@ public class AoC6 {
 		myList.add(input);
 		int max=input[0];
 		int index = 0;
-		for(int i = 0; i<input.length; i++) {
-			if(input[i]>max) {
-				max = input[i];
-				index = i;
+		int cycles = 0;
+		
+		whileloop:
+		while(true) {
+			for(int i = 0; i<input.length; i++) {
+				if(input[i]>max) {
+					max = input[i];
+					index = i;
+				}
 			}
+			input[index]=0;
+			int remainder = max%input.length;
+			System.out.println(remainder);
+			int quotient = max/input.length;
+			for(int i = 0; i<input.length; i++) {
+				if((i!=index) && quotient > 0) {
+					input[i]= remainder;
+					input[index]=quotient;	
+					System.out.println(input[i]);
+				}
+				else if(quotient == 0) {
+					input[i]=remainder;
+				}
+			}
+			for(int i = 0; i<myList.size(); i++) {
+				if(input == myList.get(i)) {
+					break whileloop;
+				}
+			}
+			myList.add(input);
+			cycles ++;
 		}
-		input[index]=0;
-		int remainder = max%input.length;
-		int quotient = max/input.length;
-		for(int i = 0; i<input.length; i++) {
-			input[i]
-		}
+		System.out.println("Number of cycles: "+cycles);
 	}
 }
