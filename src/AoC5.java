@@ -31,6 +31,8 @@ public class AoC5 {
 			array[i] = Integer.parseInt(scan.nextLine());
 			i++;
 		}
+		scan.close();
+		
 		int steps = 0;
 		i=0;
 		try {
@@ -48,6 +50,7 @@ public class AoC5 {
 	public static void parttwo(int lines, String everything) {
 		int[] array = new int[lines];
 		Scanner scan = new Scanner(everything);
+		scan.close();
 		int i = 0;
 		while(scan.hasNextLine()) {
 			array[i] = Integer.parseInt(scan.nextLine());
